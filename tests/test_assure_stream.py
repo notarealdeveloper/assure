@@ -16,3 +16,5 @@ def test_assure_stream():
     stream = make_stream('rb')
     assert assure.seekable(stream).seekable()
 
+    bytes = f"hello world"
+    assert assure.seekable(bytes).seekable()

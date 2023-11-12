@@ -14,8 +14,12 @@ def seekable(o):
             return io.StringIO(o.read())
         if o.mode == 'rb':
             return io.BytesIO(o.read())
-        raise TypeError(f"cannot assure seekable: {o}")
-    raise TypeError(f"input is not a stream: {o}")
+        raise TypeError(f"bad input: {o!r}")
+    if isinstance(o, bytes):
+        return io.BytesIO(o)
+    if isinstance(o, str):
+        return io.StringIO(o)
+    raise TypeError(f"bad input: {o!r}")
 
 def mode(o, mode):
     if not hasattr(o, 'mode'):
