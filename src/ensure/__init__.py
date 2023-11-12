@@ -1,2 +1,2 @@
-from .array import *
-from .object import *
+from .plural import *
+from .vector import *
