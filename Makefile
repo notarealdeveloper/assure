@@ -6,6 +6,12 @@ all:
 install: all
 	pip install dist/*.tar.gz
 
+develop:
+	pip install -e .
+
+check:
+	pytest tests
+
 uninstall:
 	pip uninstall $(PKG)
 
