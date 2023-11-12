@@ -8,9 +8,11 @@ def make_stream(mode):
 def test_assure_stream():
     stream = make_stream('r')
     assert not stream.seekable()
+    stream = make_stream('r')
     assert assure.seekable(stream).seekable()
 
     stream = make_stream('rb')
     assert not stream.seekable()
+    stream = make_stream('rb')
     assert assure.seekable(stream).seekable()
 
