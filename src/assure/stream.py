@@ -5,6 +5,7 @@ __all__ = [
 
 import os
 import io
+import pathlib
 
 def seekable(o):
     if hasattr(o, 'seekable'):
@@ -15,6 +16,10 @@ def seekable(o):
         if o.mode == 'rb':
             return io.BytesIO(o.read())
         raise TypeError(f"bad input: {o!r}")
+    if isinstance(o, pathlib.Path):
+        o = o.read_bytes()
+    if isinstance(o, str) and os.path.exists(o):
+        o = open(o, 'rb').read()
     if isinstance(o, bytes):
         return io.BytesIO(o)
     if isinstance(o, str):
