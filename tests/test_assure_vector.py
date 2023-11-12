@@ -1,7 +1,7 @@
 import numpy as np
-from ensure import vector
-from ensure import vectors
-from ensure import harmonize
+from assure import vector
+from assure import vectors
+from assure import harmonize
 
 def test_vector():
     a = np.arange(1024)

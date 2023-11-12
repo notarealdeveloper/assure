@@ -1,13 +1,13 @@
 [project]
-name = "ensure"
+name = "assure"
 version = "0.0.1"
 authors = [
     { name="Jason Wilkes", email="notarealdeveloper@gmail.com" },
 ]
-description = "cast + assert - except = ensure"
+description = "assert + ensure = assure"
 dependencies = [
     "numpy",
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/notarealdeveloper/ensure"
+"Homepage" = "https://github.com/notarealdeveloper/assure"

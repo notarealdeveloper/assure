@@ -1,9 +1,9 @@
-PKG := ensure
+PKG := assure
 
-all:
-	python -m build --sdist
+build:
+	python -m build
 
-install: all
+install: build
 	pip install dist/*.tar.gz
 
 develop:
@@ -16,4 +16,17 @@ uninstall:
 	pip uninstall $(PKG)
 
 clean:
-	rm -rv dist/ src/*.egg-info
+	rm -rv dist/ build/ src/*.egg-info
+
+push-test:
+	python -m twine upload --repository testpypi dist/*
+
+pull-test:
+	pip install -i https://test.pypi.org/simple/ $(PKG)
+
+push-prod:
+	python -m twine upload dist/*
+
+pull-prod:
+	pip install $(PKG)
+

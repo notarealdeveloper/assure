@@ -14,7 +14,7 @@ def seekable(o):
             return io.StringIO(o.read())
         if o.mode == 'rb':
             return io.BytesIO(o.read())
-        raise TypeError(f"cannot ensure seekable: {o}")
+        raise TypeError(f"cannot assure seekable: {o}")
     raise TypeError(f"input is not a stream: {o}")
 
 def mode(o, mode):

@@ -1,3 +1,3 @@
-# ensure
+# assure
 
-cast + assert - except = ensure
+assert + ensure = assure
