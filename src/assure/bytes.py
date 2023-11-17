@@ -1,23 +1,26 @@
 #!/usr/bin/env python3
 
 __all__ = [
+    'read',
     'bytes',
 ]
 
-import io
 import os
-import pathlib
 import builtins
 
+def read(arg):
+    if hasattr(arg, 'read'):
+        return arg.read()
+    elif os.path.exists(arg):
+        return open(arg, 'rb').read()
+    else:
+        return arg
+
 def bytes(arg):
-    if isinstance(arg, io.IOBase):
-        arg = arg.read()
+    # TODO: don't call read in here, add more functions and fix the users
+    arg = read(arg)
     if isinstance(arg, str):
         arg = arg.encode()
-    if isinstance(arg, pathlib.Path):
-        arg = arg.as_posix()
-    if os.path.exists(arg):
-        arg = open(arg, 'rb').read()
     if isinstance(arg, builtins.bytes):
         return arg
     cls = type(arg)
