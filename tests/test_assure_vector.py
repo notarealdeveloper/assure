@@ -37,6 +37,10 @@ def test_vectors():
 
     assert vectors([vectors(a), a, b, vectors(b)]).shape == (4, 1024)
 
+    # dict_values
+    d = {'a': np.arange(5), 'b': np.arange(5)}
+    assert vectors(d.values()).shape == (2,5)
+
 
 def test_harmonize():
     a = np.arange(1024)

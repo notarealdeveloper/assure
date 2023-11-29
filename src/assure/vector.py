@@ -4,7 +4,8 @@ __all__ = [
     'harmonize',
 ]
 
-import numpy as np
+dict_keys = type({}.keys())
+dict_values = type({}.values())
 
 def vector(o):
     if not hasattr(o, 'ndim'):
@@ -22,7 +23,10 @@ def vectors(o):
 
         rank two arrays, of shape (n, N), for variable n and shared N.
     """
+    if isinstance(o, (dict_keys, dict_values)):
+        o = list(o)
     if isinstance(o, (list, tuple)):
+        import numpy as np
         return np.stack([vector(p) for p in o])
     if hasattr(o, 'ndim'):
         if o.ndim == 1:
