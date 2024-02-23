@@ -3,7 +3,7 @@ __all__ = [
     'plural',
 ]
 
-Singular = str | int | float | bytes | bool
+Singular = (str, int, float, bytes, bool)
 
 def singular(o):
     if isinstance(o, Singular):
