@@ -1,6 +1,6 @@
 [project]
 name = "assure"
-version = "0.0.5"
+version = "0.0.6"
 authors = [
     { name="Jason Wilkes", email="notarealdeveloper@gmail.com" },
 ]
@@ -10,4 +10,5 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/notarealdeveloper/assure"
+source = "https://github.com/notarealdeveloper/assure"
+download = "https://pypi.org/project/assure/#files"
